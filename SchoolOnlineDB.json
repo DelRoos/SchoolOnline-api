@@ -1,0 +1,65 @@
+[{
+        "application": "User",
+        "table": "Roles",
+        "fields": [
+            "code : string choice",
+            "describe : string 50"
+        ]
+    },
+    {
+        "application": "User",
+        "table": "PersonalUser",
+        "fields": [
+            "first_name : string 50",
+            "last_name : string 50",
+            "gender : choice string",
+            "born_at : date",
+            "email : unique email field 50",
+            "profile : image",
+            "role : primary key",
+            "matricule : string unique",
+            "departement : foreign key"
+        ]
+    },
+    {
+        "application": "School",
+        "table": "Speciality",
+        "fields": [
+            "letter : string choice",
+            "describe : string 50"
+        ]
+    },
+    {
+        "application": "School",
+        "table": "Level",
+        "fields": [
+            "number : int choice",
+            "describe : string 50"
+        ]
+    },
+    {
+        "application": "School",
+        "table": "Classes",
+        "fields": [
+            "Level : foreign key",
+            "speciality : foreign key"
+        ]
+    },
+    {
+        "application": "School",
+        "table": "Departement",
+        "fields": [
+            "name : string",
+            "descripe : string"
+        ]
+    },
+    {
+        "application": "School",
+        "table": "Matter",
+        "fields": [
+            "classe : foreing",
+            "teacher : foreign key",
+            "coeficient : integer"
+        ]
+    }
+]
