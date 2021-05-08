@@ -1,0 +1,49 @@
+{
+    "url": "http://192.168.43.38:8000/api-school/test/{id_course}",
+    "Request": {
+        "question" : [
+            {
+                "question" : " (varchar 255) jfwjhfwjhffwjk weljfkw few",
+                "response" : [
+                    {
+                        "resonse" : "(varchar 255) hfbdshfjsdgfh sdjg sdgkf sdk",
+                        "state" : "(bool) true or false"
+                    },
+                    {
+                        "resonse" : "(varchar 255) hfbdshfjsdgfh sdjg sdgkf sdk",
+                        "state" : "(bool) true or false"
+                    },
+                    {
+                        "resonse" : "(varchar 255) hfbdshfjsdgfh sdjg sdgkf sdk",
+                        "state" : "(bool) true or false"
+                    },
+                    {
+                        "resonse" : "(varchar 255) hfbdshfjsdgfh sdjg sdgkf sdk",
+                        "state" : "(bool) true or false"
+                    }
+                ]
+            },
+            {
+                "question" : " (varchar 255) jfwjhfwjhffwjk weljfkw few",
+                "response" : [
+                    {
+                        "resonse" : "(varchar 255) hfbdshfjsdgfh sdjg sdgkf sdk",
+                        "state" : "(bool) true or false"
+                    },
+                    {
+                        "resonse" : "(varchar 255) hfbdshfjsdgfh sdjg sdgkf sdk",
+                        "state" : "(bool) true or false"
+                    },
+                    {
+                        "resonse" : "(varchar 255) hfbdshfjsdgfh sdjg sdgkf sdk",
+                        "state" : "(bool) true or false"
+                    },
+                    {
+                        "resonse" : "(varchar 255) hfbdshfjsdgfh sdjg sdgkf sdk",
+                        "state" : "(bool) true or false"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "url": "http://127.0.0.1:8000/api/school/reponse",
+    "url_modify": "http://127.0.0.1:8000/api/school/reponse/{id_reponse}",
+    "data": {
+        "content": "bertouq",
+        "verify": true,
+        "question": 1
+    }
+    
+}

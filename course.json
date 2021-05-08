@@ -1,0 +1,8 @@
+{
+    "url": "http://127.0.0.1:8000/api/school/lecon",
+    "url_modify": "http://127.0.0.1:8000/api/school/lecon/{id_lecon}",
+    "data": {
+        "content": "<h1> lewkjefwekjewfewkfhkewf pays lkjjrelj grjeilglrkg eljkrger</h1>",
+        "program": 2
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "url": "http://127.0.0.1:8000/api/school/program",
+    "url_modify": "http://127.0.0.1:8000/api/school/program/{id_program}",
+    "data" : {
+                "title": "la theorie des nombre",
+                "describe": "jklhkljfwelknwemvnolwnvoienvlknsoidvlknsdiwnvewlk(text) lorem ipsumlmkmvw ciwklcwnk.jn we",
+                "limit_day": "2021-10-10",
+                "begin_time": "14:00:00",
+                "duration": 3,
+                "matter": 1
+            }
+}
