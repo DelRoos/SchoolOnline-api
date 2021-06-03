@@ -34,7 +34,7 @@ class Program(models.Model):
     status = models.BooleanField(default=False, blank=True)
 
 class Lecon(models.Model):
-    program = models.ForeignKey(Program, on_delete=models.CASCADE, related_name="program_lecon")
+    program = models.ForeignKey(Program, unique=True, on_delete=models.CASCADE, related_name="program_lecon")
     content = models.TextField()
 
 class Question(models.Model):

@@ -18,7 +18,7 @@ urlpatterns = [
     path('<int:pk>', views.UserView.as_view({
             'get': 'retrieve',
             'put': 'update',
-            # 'delete': 'destroy'
+            'delete': 'destroy'
         })),
     path('current_user/', views.current_user)
 ]

@@ -1,4 +1,4 @@
-from .models import Speciality, Level, Classe, Matter, Program, Lecon, Question, Reponse
+from .models import ClassRoom, Speciality, Level, Classe, Matter, Program, Lecon, Question, Reponse
 from .serializers import SpecialitySerializer, LevelSerializer, ClasseSerializer, MatterSerializer, LeconSerializer, QuestionSerializer, ReponseSerializer
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser
@@ -10,6 +10,8 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from django.shortcuts import get_object_or_404
 from rest_framework import status
+from rest_framework.decorators import api_view
+from django.core import serializers
 
 class SpecialityList(generics.ListCreateAPIView):
     queryset = Speciality.objects.all()
@@ -124,6 +126,37 @@ class LeconView(viewsets.ViewSet):
         serializer = LeconSerializer(lecon)
         return Response(serializer.data)
     
+    def get_lecon(self, request, pk_program):
+        program = Program.objects.get(pk=pk_program)
+        lesson = Lecon.objects.filter(program=program)
+        print( "le pay est bios ", len(lesson))
+        if len(lesson) == 0 :
+            return Response({'error': 'the content is not aviable'}, status=status.HTTP_404_NOT_FOUND)
+        
+        serializers = LeconSerializer(lesson[0])
+        return Response(serializers.data, status=status.HTTP_200_OK)
+
+
+    def get_test(self, request, pk_program):
+        data = []
+        program = Program.objects.get(pk=pk_program)
+        lesson = Lecon.objects.filter(program=program)
+        questions = lesson[0].lecon_question.all()
+        
+        for question in questions:
+            item = {"id": question.id, "content": question.content, "response": []}
+            for rep in question.question_response.all():
+                item["response"].append({
+                    "id": rep.id,
+                    "content": rep.content,
+                    "verify": rep.verify
+                })
+            data.append(item)
+        
+        return Response(data, status=status.HTTP_200_OK)
+
+    
+
     def update(self, request, pk=None):
         queryset = Lecon.objects.all()
         lecon = get_object_or_404(queryset, pk=pk)
@@ -141,6 +174,11 @@ class LeconView(viewsets.ViewSet):
         
         try:
             program = Program.objects.get(pk=request.data["program"])
+            lesson = Lecon.objects.filter(program=program)
+    
+            if len(lesson) != 0:
+                return Response({'error': 'the lesson has uploaded'},status=status.HTTP_404_NOT_FOUND)
+
         except Program.DoesNotExist:
             return Response({'error': 'this title does not exist in program'},status=status.HTTP_404_NOT_FOUND)
              
@@ -179,3 +217,19 @@ class ReponseList(generics.ListCreateAPIView):
 class ReponseAct(generics.RetrieveUpdateDestroyAPIView):
     queryset = Reponse.objects.all()
     serializer_class = ReponseSerializer
+
+def get_all_matter_class(id_class):
+    all_user = ClassRoom.objects.filter(classe=id_class)
+    all_teacher = all_user.filter(role=2)
+
+@api_view(['GET'])
+def active_or_desactive_lesson(request, pk_program):
+    # activate or desactivate the lesson title in the program list
+
+    program = Program.objects.get(pk=pk_program)
+    program.status = not program.status
+    program.save()
+    data = ProgramSerializer(program).data
+
+    return Response(data, status=status.HTTP_200_OK)
+    

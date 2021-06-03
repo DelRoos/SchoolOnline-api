@@ -31,6 +31,10 @@ urlpatterns = [
             # 'delete': 'destroy'
         })),
 
+    path('program_by_matter/<int:pk_matter>', views.ProgramView.as_view({
+        'get' : 'program_by_matter'
+    })),
+
     path('program/matter/<int:pk_matter>', views.ProgramView.as_view({
             'get': 'program_by_matter',
             # 'delete': 'destroy'
@@ -41,11 +45,22 @@ urlpatterns = [
             'get': 'list',
             'post': 'create',
         })),
+
+    path('lecon_test/<int:pk_program>',views.LeconView.as_view({
+            'get': 'get_test'
+        })),
+
+    path('active_or_desactive/<int:pk_program>',views.active_or_desactive_lesson),
     
     path('lecon/<int:pk>', views.LeconView.as_view({
             'get': 'retrieve',
             'put': 'update',
             # 'delete': 'destroy'
         })),
+        
+    path('lecon_by_program/<int:pk_program>',views.LeconView.as_view({
+            'get': 'get_lecon',
+            # 'delete': 'destroy'
+        }))
         
 ]

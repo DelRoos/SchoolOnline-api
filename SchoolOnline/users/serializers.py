@@ -34,7 +34,7 @@ class UserSerializer(serializers.ModelSerializer):
         classRoom = obj.classroom_user.all()
         classes = []
         for item in classRoom:
-            classes.append({"id": item.classe.pk,
+            classes.append({"id": item.pk,
                       "level": item.classe.level.num,
                       "speciality": item.classe.speciality.letter
                     })
