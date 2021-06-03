@@ -1,0 +1,21 @@
+{
+    {
+        "url": "/api/user/{id}",
+        "comment": " les action ne peuvent etre mene que par l'administrateur avec le create aussi
+                    DELETE : suppression
+                    UPDATE : modification
+                    "
+    },
+    {
+        "url": "/api/school/program_by_matter/{id_matter}",
+        "comment": " GET: programme d'une matiere"
+    },
+    {
+        "url": "/api/school/active_or_desactive/{id_program}",
+        "comment": " GET: active ou deactive le titre de la lecon dans la liste des program"
+    },
+    {
+        "url": "/api/school/lecon_test/{id_program}",
+        "comment": " GET: active ou deactive le titre de la lecon dans la liste des program"
+    },
+}

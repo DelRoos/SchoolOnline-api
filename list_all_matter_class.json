@@ -1,0 +1,23 @@
+{
+    "url":  "http://127.0.0.1:8000/api/school/matter_class/{id_class}",
+    "Response": {
+        "matters": [
+            {
+                "id": 1,
+                "credit": 6,
+                "title": "Mathematique"
+            },
+            {
+                "id": 2,
+                "credit": 2,
+                "title": "Physique"
+            },
+            {
+                "id": 3,
+                "credit": 4,
+                "title": "Francais"
+            }
+        ]
+    }
+}
+// pour avoir le title 
